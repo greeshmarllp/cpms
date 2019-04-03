@@ -13,29 +13,9 @@ class FrontModel extends Model
         return $data;
     }
 
-    public function second_section(){
 
-        $data = DB::table('secondsection')->get();
-        return $data;
-    }
 
-    public function home_service(){
 
-        $data = DB::table('service')->get();
-        return $data;
-    }
-
-    public function gallery(){
-
-        $data = DB::table('gallery')->get();
-        return $data;
-    }
-
-    public function content(){
-
-        $data = DB::table('content')->get();
-        return $data;
-    }
 
     public function testimonial(){
 
@@ -43,36 +23,48 @@ class FrontModel extends Model
         return $data;
     }
 
-    public function mission(){
 
-        $data = DB::table('mission')->get();
+
+
+
+    public function get_about_data(){
+
+        $data = DB::table('about')->get();
+        return $data;
+    }
+    public function get_property_faq_data(){
+
+        $data = DB::table('faq')->where('category', '=', 'Property Management FAQ')->get();
         return $data;
     }
 
-    public function vission(){
+    public function get_tenancy_faq_data(){
 
-        $data = DB::table('vission')->get();
+        $data = DB::table('faq')->where('category', '=', 'During the tenancy')->get();
         return $data;
     }
 
-     public function aboutcontent(){
+    
 
-        $data = DB::table('about_content')->get();
+    
+    public function get_agreement_faq_data(){
+
+        $data = DB::table('faq')->where('category', '=', 'Ending a Tenancy Agreement')->get();
+        return $data;
+    }
+    public function get_rentals_faq_data(){
+
+        $data = DB::table('rentalsfaq')->get();
         return $data;
     }
 
-    public function get_associate_list(){
+    public function get_rentals_data(){
 
-        $data = DB::table('associates')->get();
+        $data = DB::table('rentals')->get();
         return $data;
     }
     
-    public function get_gallery_list(){
 
-        $data = DB::table('gallery')->get();
-        return $data;
-    }
-    
     public function get_contact_list(){
 
         $data = DB::table('contact')->get();

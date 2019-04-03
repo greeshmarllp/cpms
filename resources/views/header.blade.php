@@ -282,20 +282,24 @@
           </span>
         </a>
         <ul class="treeview-menu">
+          <li><a href="{{ url('admin/aboutbanner') }}"><i class="fa fa-circle-o"></i>About Banner</a></li>
           <li><a href="{{ url('admin/about') }}"><i class="fa fa-circle-o"></i> About </a></li>
 
+          <li><a href="{{ url('admin/termsofuse') }}"><i class="fa fa-circle-o"></i>Terms of Use</a></li>
+          <li><a href="{{ url('admin/team') }}"><i class="fa fa-circle-o"></i> Team </a></li>
+          <li><a href="{{ url('admin/testimonial') }}"><i class="fa fa-circle-o"></i> Testimonials </a></li>
           
         </ul>
       </li>
 
-       <li class="">
-          <a href="{{ url('admin/property-types') }}">
-            <i class="fa fa-pie-chart"></i>
-            <span>Property Types</span>
-          </a>
-        </li>
+      <li class="">
+        <a href="{{ url('admin/property-types') }}">
+          <i class="fa fa-pie-chart"></i>
+          <span>Property Types</span>
+        </a>
+      </li>
 
-        <li class="treeview">
+      <li class="treeview">
         <a href="#">
           <i class="fa fa-laptop"></i>
           <span>Rentals</span>
@@ -307,9 +311,27 @@
           <li><a href="{{ url('admin/rentals') }}"><i class="fa fa-circle-o"></i> Rentals Property </a></li>
           <li><a href="{{ url('admin/rentals-gallery') }}"><i class="fa fa-circle-o"></i> Rentals Gallery </a></li>
           <li><a href="{{ url('admin/land-lord') }}"><i class="fa fa-circle-o"></i> Landlords Information </a></li>
+          <li><a href="{{ url('admin/rental-details') }}"><i class="fa fa-circle-o"></i> Rental Details </a></li>
           
         </ul>
       </li>
+
+       <li class="treeview">
+          <a href="#">
+            <i class="fa fa-laptop"></i> <span>Sales</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{ url('admin/property-list') }}"><i class="fa fa-circle-o"></i>Sales Property List</a></li>
+            <li><a href="{{ url('admin/sales-gallery') }}"><i class="fa fa-circle-o"></i> Sales Property Gallery</a></li>
+
+            <li><a href="{{ url('admin/sales-agent') }}"><i class="fa fa-circle-o"></i> Sales Agent</a></li>
+            <li><a href="{{ url('admin/sales-details') }}"><i class="fa fa-circle-o"></i>Sales Details</a></li>
+            <!-- <li><a href="{{ url('admin/catalogue-content') }}"><i class="fa fa-circle-o"></i>Content</a></li> -->
+          </ul>
+        </li>
 
       <li class="treeview">
         <a href="#">

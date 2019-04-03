@@ -5,14 +5,14 @@
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Data Tables
-        <small>advanced tables</small>
+        Testimonials Tables
+        <!-- <small>advanced tables</small> -->
       </h1>
-      <ol class="breadcrumb">
+      <!-- <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Tables</a></li>
         <li class="active">Data tables</li>
-      </ol>
+      </ol> -->
     </section>
 
     <!-- Main content -->
@@ -22,8 +22,8 @@
           
           <div class="box">
             <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
-              <a href="{{url('/admin/add-new-testimonial')}}/tocken" class="btn btn-success pull-right">Add New</a>
+              <!-- <h3 class="box-title">Data Table</h3> -->
+              <a href="{{url('/admin/add-testimonial')}}/tocken" class="btn btn-success pull-right">Add New</a>
             </div>
             <!-- /.box-header -->
             <div class="box-body">
@@ -31,24 +31,35 @@
                 <thead>
                 <tr>
                   <th>Sl/No</th>
-                  <th>Content</th>
-                  <!-- <th>Image</th> -->
+                  <th>Name</th>
+                  <!-- <th>Content</th> -->
+                  <th>Position</th>
+                  <th>Image</th>
                   <th>Action</th>
                   
                 </tr> 
                 </thead>
                 <tbody>
-                  <?php $i=1; ?>
+                   <?php $i=1; ?>
                    @foreach($data as $datas)
-                   
+                  
                 <tr>
                   <td>{{$i}}</td>
-                  <td>{!!$datas->description!!}</td>
-                  <!-- <td>{{$datas->description}}</td> -->
-                  <td> <a href="{{url('/admin/edit-testimonial')}}/{{$datas->id}} "  class="btn btn-sm btn-info"><i class="glyphicon glyphicon-edit"></i></a>
-                    <a class="btn btn-sm btn-danger" href="javascript:void(0)" id="delete_product" data-id="{{ $datas->id }}" class="btn"><i class="glyphicon glyphicon-trash"></i></a></td>
+                  <td>{{$datas->name}}</td>
+                 <!-- <td>{!! $datas->description !!}</td> -->
+                  <td>{{$datas->position}}</td>
+                  <td>
+                      @if(!empty($datas->image))
+                    <img src="{{url('public/images/testimonial')}}/{{$datas->image}}">
+                    @endif
+                </td>
+                  <td>
+                    <a  href="{{url('/admin/add-testimonial')}}/{{$datas->id}}" class="btn btn-sm btn-info"  data-id="{{ $datas->id }}" href="javascript:void(0)"><i class="glyphicon glyphicon-edit"></i></a>
+                    &nbsp;&nbsp;
+                    <a class="btn btn-sm btn-danger" href="javascript:void(0)" id="delete_product" data-id="{{ $datas->id }}" class="btn"><i class="glyphicon glyphicon-trash"></i></a>
+                  </td>
                 </tr>
-                 <?php $i++; ?>
+                <?php $i++; ?>
                 @endforeach
                 </tfoot>
               </table>
@@ -67,12 +78,11 @@
 
 
 @include('footer')
+
 <script>
   $(document).ready(function(){
-// url = '../TestimonialController/DeleteTestimonial';
-// alert(csrf_token);
-    readProducts(); /* it will load products when document loads */
 
+    readProducts(); / it will load products when document loads /
     $(document).on('click', '#delete_product', function(e){
 
       var productId = $(this).data('id');
@@ -83,7 +93,7 @@
   });
 
   function SwalDelete(productId){
-// alert(productId);
+    // alert(productId);
     swal({
       title: 'Are you sure?',
       text: "It will be deleted permanently!",
@@ -95,11 +105,12 @@
       showLoaderOnConfirm: true,
 
       preConfirm: function() {
+
         return new Promise(function(resolve) {
-var baseurl=$("#baseurl").val();
+          var baseurl=$("#baseurl").val();
            $.ajax({
             type: 'POST',
-            url: 'DeleteTestimonial',
+            url: 'Delete',
             
             dataType: 'json',
               data: {"_token": "{{ csrf_token() }}",'id':+productId}

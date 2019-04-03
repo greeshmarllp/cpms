@@ -15,6 +15,16 @@ use App\AdminTestimonial;
 use App\AdminRentals;
 use App\ImageUpload;
 use App\AdminPropertyTypes;
+use App\AdminLandLord;
+use App\AdminRentalDetails;
+use App\AdminAboutBanner;
+use App\AdminTermsofuse;
+use App\AdminTeam;
+use App\AdminPropertylist;
+use App\AdminSalesGallery;
+use App\AdminSalesAgent;
+use App\AdminSalesDetails;
+
 
 class HomeController extends Controller
 {
@@ -124,10 +134,93 @@ class HomeController extends Controller
     return view('admin/rentalsgallery/rentalsgallery_list',compact('data'));
   }
 
-   public function property_types()
+  public function property_types()
   {
     $type_data = new AdminPropertyTypes();
     $data=$type_data->get_all();
     return view('admin/propertytypes/property_type_list',compact('data'));
   }
+
+  public function land_lord()
+  {
+    $land_data = new AdminLandLord();
+    $data=$land_data->get_all();
+    return view('admin/landlord/landlord_list',compact('data'));
+  }
+
+  
+    public function rentaldetails()
+  {
+    $rental_data = new AdminRentalDetails();
+    $data=$rental_data->get_all();
+    return view('admin/rentaldetails/rentaldetail_list',compact('data'));
+  }
+
+  public function aboutbanner(){
+
+      $team = new AdminAboutBanner();
+      $data= $team->get_all();
+      return view('admin/aboutbanner/aboutbanner-list',compact('data'));
+    }
+
+    public function termsofuse(){
+
+      $termsofuse = new AdminTermsofuse();
+      $data= $termsofuse->get_all();
+      return view('admin/termsofuse/termsofuse-list',compact('data'));
+    }
+
+    public function team(){
+
+      $team = new AdminTeam();
+      $data= $team->get_all();
+      return view('admin/team/team-list',compact('data'));
+    }
+
+    public function testimonial(){
+
+        $testimonial_data = new AdminTestimonial();
+        $data=$testimonial_data->get_all();
+        return view('admin/testimonial/testimonial-list',compact('data'));
+    }
+
+public function property_listing(){
+
+      $property_list = new AdminPropertylist();
+      $data= $property_list->get_all();
+      // print_r($data);
+      // exit();
+      return view('admin/property-list/propertylist-list',compact('data'));
+    }
+
+    public function sales_gallery(){
+
+      $property_gallery = new AdminSalesGallery();
+      $data= $property_gallery->get_all();
+      // echo "<pre>";
+      // print_r($data);
+      // exit();
+      return view('admin/sales-gallery/salesgallery-list',compact('data'));
+    }
+
+public function sales_agent(){
+
+      $sales_agent = new AdminSalesAgent();
+      $data= $sales_agent->get_all();
+      // echo "<pre>";
+      // print_r($data);
+      // exit();
+      return view('admin/sales-agent/salesagent-list',compact('data'));
+    }
+
+    public function sales_details(){
+
+      $sales_details = new AdminSalesDetails();
+      $data= $sales_details->get_all();
+      // echo "<pre>";
+      // print_r($data);
+      // exit();
+      return view('admin/sales-details/salesdetails-list',compact('data'));
+    }
+
 }

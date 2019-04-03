@@ -13,14 +13,14 @@
 
 Route::get('/', 'FrontController@index');
 Route::get('/about', 'FrontController@about');
-Route::get('/associates', 'FrontController@associates');
-Route::get('/gallery', 'FrontController@gallery');
+Route::get('/terms-of-use', 'FrontController@terms_of_use');
+Route::get('/team', 'FrontController@team');
 Route::get('/contact-us', 'FrontController@contact_us');
-Route::get('/catalogue/{id}', 'FrontController@catalogue');
-Route::get('/catalogue/{firstlevel}/{id}', 'FrontController@catalogue');
-Route::get('/catalogue/{secondlevel}/{id}', 'FrontController@catalogue');
-Route::get('/catalogue/{thirdlevel}/{id}', 'FrontController@catalogue');
-Route::get('/catalogue/{fourthlevel}/{id}', 'FrontController@catalogue');
+Route::get('/testimonials', 'FrontController@testimonials');
+Route::get('/rentals', 'FrontController@rentals');
+Route::get('/sales', 'FrontController@sales');
+Route::get('/faq', 'FrontController@faq');
+// Route::get('/catalogue/{fourthlevel}/{id}', 'FrontController@catalogue');
 
 
 Auth::routes();
@@ -62,6 +62,28 @@ Route::get('/admin/add-new-testimonial/{id}', 'TestimonialController@add_new_tes
 Route::post('/admin/save-testimonial/{id}', 'TestimonialController@save_testimonial');
 Route::get('/admin/edit-testimonial/{id}', 'TestimonialController@add_new_testimonial');
 
+Route::get('/admin/property-list','HomeController@property_listing');
+Route::get('/admin/add-propertylist/{id}', 'PropertyListController@add_property');
+Route::post('/admin/save-propertylist/{id}', 'PropertyListController@save');
+Route::post('/admin/Delete', 'PropertyListController@Delete');
+
+Route::get('/admin/sales-gallery','HomeController@sales_gallery');
+Route::get('/admin/add-salesgallery/{id}', 'SalesGalleryController@add_gallery');
+Route::post('/admin/save-salesgallery/{id}', 'SalesGalleryController@save');
+Route::post('/reorderposition', 'SalesGalleryController@reorderposition');
+Route::post('/admin/Delete', 'SalesGalleryController@Delete');
+Route::post('/admin/deleteimage', 'SalesGalleryController@deleteimage');
+
+Route::get('/admin/sales-agent','HomeController@sales_agent'); 
+Route::get('/admin/add-salesagent/{id}', 'SalesAgentController@add_salesagent');
+Route::post('/admin/save-salesagent/{id}', 'SalesAgentController@save');
+Route::post('/admin/Delete', 'SalesAgentController@Delete');
+
+Route::get('/admin/sales-details','HomeController@sales_details'); 
+Route::get('/admin/add-salesdetails/{id}', 'SalesDetailsController@add_salesdeails');
+Route::post('/admin/save-salesdetails/{id}', 'SalesDetailsController@save');
+Route::post('/admin/SalesDetailDelete', 'SalesDetailsController@Delete');
+
 Route::get('/admin/faq', 'HomeController@faq');
 Route::get('/admin/add-new-faq/{id}', 'FaqController@add_new_faq');
 Route::post('/admin/save-faq/{id}', 'FaqController@save_faq');
@@ -89,6 +111,25 @@ Route::get('/admin/add-new-about/{id}', 'AboutController@add_new_about');
 Route::post('/admin/save-about/{id}', 'AboutController@save_about');
 Route::get('/admin/edit-about/{id}', 'AboutController@add_new_about');
 
+Route::get('/admin/aboutbanner','HomeController@aboutbanner'); 
+Route::get('/admin/add-aboutbanner/{id}','AboutBannerController@aboutbanner'); 
+Route::post('/admin/save-aboutbanner/{id}','AboutBannerController@save'); 
+
+Route::get('/admin/termsofuse','HomeController@termsofuse'); 
+Route::get('/admin/add-termsofuse/{id}', 'TermsofuseController@add_termsofuse');
+Route::post('/admin/save-termsofuse/{id}', 'TermsofuseController@save');
+Route::post('/admin/DeleteTermsofUse', 'TermsofuseController@DeleteTermsofUse');
+
+Route::get('/admin/team','HomeController@team'); 
+Route::get('/admin/add-team/{id}', 'TeamController@add_team');
+Route::post('/admin/save-team/{id}', 'TeamController@save');
+Route::post('/admin/Delete', 'TeamController@Delete');
+
+Route::get('/admin/testimonial','HomeController@testimonial');
+Route::get('/admin/add-testimonial/{id}', 'TestimonialController@add_testimonial');
+Route::post('/admin/save-testimonial/{id}', 'TestimonialController@save');
+Route::post('/admin/Delete', 'TestimonialController@Delete');
+
 Route::get('/admin/rentals', 'HomeController@rentals');
 Route::get('/admin/add-new-rentals/{id}', 'RentalsController@add_new_rentals');
 Route::post('/admin/save-rentals/{id}', 'RentalsController@save_rentals');
@@ -110,6 +151,10 @@ Route::post('/admin/save-land-lord/{id}', 'LandLordController@save_land_lord');
 Route::get('/admin/edit-land-lord/{id}', 'LandLordController@add_new_land_lord');
 
 
+Route::get('/admin/rental-details', 'HomeController@rentaldetails');
+Route::get('/admin/add-new-rentaldetails/{id}', 'RentalDetailsController@add_new_rentaldetails');
+Route::post('/admin/save-rentaldetails/{id}', 'RentalDetailsController@save_rentaldetails');
+Route::get('/admin/edit-rentaldetails/{id}', 'RentalDetailsController@add_new_rentaldetails');
 
 
 Route::post('/admin/DeleteTestimonial', 'TestimonialController@DeleteTestimonial');
