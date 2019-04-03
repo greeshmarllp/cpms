@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-<title>Caboolture property management and salesss</title>
+<title>Caboolture property management and sales</title>
 <link rel="stylesheet" type="text/css" href="{{url('assets/themehtml/themehtml/css/bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{url('assets/themehtml/css/font-awesome.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{url('assets/themehtml/css/reality-icon.css') }}">

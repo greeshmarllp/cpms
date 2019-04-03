@@ -23,7 +23,7 @@
       <div class="col-md-8 col-sm-12 col-xs-12">
         <div class="row">
           <div class="col-md-9">
-            <h2 class="uppercase">PROPERTY LISTINGS Here</h2>
+            <h2 class="uppercase">PROPERTY LISTINGS</h2>
             <p class="heading_space">We have Properties in these Areas View a list of Featured Properties.</p>
           </div>
           
